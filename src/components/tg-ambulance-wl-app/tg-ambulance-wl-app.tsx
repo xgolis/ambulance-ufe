@@ -10,7 +10,8 @@ declare global {
 })
 export class TgAmbulanceWlApp {
   @State() private relativePath = "";
-
+  @Prop() apiBase: string;
+  @Prop() ambulanceId: string;
   @Prop() basePath: string="";
 
   componentWillLoad() {
@@ -55,8 +56,8 @@ export class TgAmbulanceWlApp {
         ? <tg-ambulance-wl-editor entry-id={entryId}
             oneditor-closed={ () => navigate("./list")} >
           </tg-ambulance-wl-editor>
-        : <tg-ambulance-wl-list
-            onentry-clicked={ (ev: CustomEvent<string>)=> navigate("./entry/" + ev.detail) } >
+         : <tg-ambulance-wl-list  ambulance-id={this.ambulanceId} api-base={this.apiBase}
+         onentry-clicked={ (ev: CustomEvent<string>)=> navigate("./entry/" + ev.detail) } >
           </tg-ambulance-wl-list>
         }
 
