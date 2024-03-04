@@ -23,6 +23,6 @@ describe('tg-ambulance-wl-app', () => {
     });
     page.win.navigation = new EventTarget()
     const child = await page.root.shadowRoot.firstElementChild;
-    expect(child.tagName.toLocaleLowerCase()).toEqual("<pfx>-ambulance-wl-list");
+    expect(child.tagName.toLocaleLowerCase()).toEqual("tg-ambulance-wl-list");
   });
 });
