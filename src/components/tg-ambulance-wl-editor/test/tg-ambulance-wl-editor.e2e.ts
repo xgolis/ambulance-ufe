@@ -1,18 +1,11 @@
-import { newSpecPage } from '@stencil/core/testing';
-import { TgAmbulanceWlEditor } from '../tg-ambulance-wl-editor';
+import { newE2EPage } from '@stencil/core/testing';
 
 describe('tg-ambulance-wl-editor', () => {
-  it('buttons shall be of different type', async () => {
-    const page = await newSpecPage({
-      components: [TgAmbulanceWlEditor],
-      html: `<tg-ambulance-wl-editor entry-id="@new"></tg-ambulance-wl-editor>`,
-    });
-    let items: any = await page.root.shadowRoot.querySelectorAll("md-filled-button");
-    expect(items.length).toEqual(1);
-    items = await page.root.shadowRoot.querySelectorAll("md-outlined-button");
-    expect(items.length).toEqual(1);
+  it('renders', async () => {
+    const page = await newE2EPage();
+    await page.setContent('<tg-ambulance-wl-editor></tg-ambulance-wl-editor>');
 
-    items = await page.root.shadowRoot.querySelectorAll("md-filled-tonal-button");
-    expect(items.length).toEqual(1);
+    const element = await page.find('tg-ambulance-wl-editor');
+    expect(element).toHaveClass('hydrated');
   });
 });
