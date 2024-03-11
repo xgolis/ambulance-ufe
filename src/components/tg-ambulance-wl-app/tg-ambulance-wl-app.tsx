@@ -54,6 +54,7 @@ export class TgAmbulanceWlApp {
       <Host>
         { element === "editor"
         ? <tg-ambulance-wl-editor entry-id={entryId}
+            ambulance-id={this.ambulanceId} api-base={this.apiBase}
             oneditor-closed={ () => navigate("./list")} >
           </tg-ambulance-wl-editor>
          : <tg-ambulance-wl-list  ambulance-id={this.ambulanceId} api-base={this.apiBase}
